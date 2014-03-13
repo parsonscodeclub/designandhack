@@ -55,15 +55,19 @@ input[type="submit"]:hover {
 
 /* line 52, ../sass/base-styles.scss */
 header {
+  position: relative;
   background-image: url("../images/header-photo.jpg");
   background-size: cover;
   background-position: bottom;
+  border: 1px solid transparent;
 }
 /* line 57, ../sass/base-styles.scss */
 header .logo {
   display: block;
-  margin: 0 auto;
+  margin: 100px auto;
   max-width: 80%;
+  z-index: 5;
+  position: relative;
 }
 
 /* line 64, ../sass/base-styles.scss */
@@ -71,6 +75,11 @@ header,
 section,
 footer {
   padding: 100px 0;
+}
+
+header {
+  padding: 0;
+  border-bottom: 1px solid transparent;
 }
 
 .intro, .why, .faq, header.sponsors-page {
@@ -124,13 +133,14 @@ header, .register, .what, footer, .info {
   */
 }
 /* line 87, ../sass/base-styles.scss */
-.what .pattern-design-container-1 {
+.pattern-design-container-1 {
   position: absolute;
   top: 0;
   width: 100%;
   height: 100%;
   background-repeat: repeat-y;
   background-attachment: fixed;
+  z-index: 1;
 }
 /* line 107, ../sass/base-styles.scss */
 .what h2 {

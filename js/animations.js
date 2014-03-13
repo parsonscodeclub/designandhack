@@ -3,21 +3,23 @@
  des_c = document.querySelector('.pattern-design-container-1'),
     des_ctx = des_c.getContext('2d'),
     dscw = des_c.offsetWidth, dsch = des_c.offsetHeight;
+    /*
  dev_c = document.querySelector('.pattern-development-container-1'),
     dev_ctx = dev_c.getContext('2d'),
     dvcw = dev_c.offsetWidth, dvch = dev_c.offsetHeight;
+    */
 
 function initSizes() {
-  des_c.width = dev_c.width = window.innerWidth;
+  des_c.width /*= dev_c.width*/ = window.innerWidth;
   des_c.height = des_c.offsetHeight;
-  dev_c.height = dev_c.offsetHeight;
+  //dev_c.height = dev_c.offsetHeight;
 }
 initSizes();
 
 //$(window).on('resize', initSizes);
 
 des_array = [];
-dev_array = [];
+//dev_array = [];
 
 var Shape = function(x, y) {
   this.x = x;
@@ -38,7 +40,7 @@ var Shape = function(x, y) {
 
   if(!x && !y) {
     this.x = (Math.random() * dscw);
-    this.y = (Math.random() * dvch);
+    this.y = (Math.random() * dsch);
   }
 
   this.filled = Math.random() > 0.5 ? true : false;
@@ -104,9 +106,11 @@ function init() {
   for(var i = 0; i < 40; i++) {
     des_array.push(new Shape());
   }
+  /*
   for(var i = 0; i < 40; i++) {
     dev_array.push(new Shape());
   }
+  */
 }
 
 function update() {
@@ -130,6 +134,7 @@ function update() {
   }
 
   //development
+  /*
   for(var i = dev_array.length - 1; i >= 0; i--) {
     dev_array[i].x += dev_array[i].speedX;
     dev_array[i].y -= dev_array[i].speedY;
@@ -144,6 +149,7 @@ function update() {
     var ns = new Shape(Math.random() * dvcw, dvch + 100);
     dev_array.push(ns);
   }
+  */
 }
 
 function draw() {
@@ -153,17 +159,19 @@ function draw() {
     else
       des_array[s].drawLine('#58dce4', des_ctx);
   }
+  /*
   for(s in dev_array) {
     if(dev_array[s].filled)
       dev_array[s].drawCircle('#ff791d', dev_ctx);
     else
       dev_array[s].drawLine('#ff791d', dev_ctx);
   }
+  */
 }
 
 function animate() {
   des_ctx.clearRect(0,0,dscw,dsch);
-  dev_ctx.clearRect(0,0,dvcw,dvch);
+  //dev_ctx.clearRect(0,0,dvcw,dvch);
   update();
   draw();
   requestAnimationFrame(animate);
