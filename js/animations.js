@@ -1,4 +1,4 @@
-((function($){
+$(window).load(function($){
 //canvas stuff
  des_c = document.querySelector('.pattern-design-container-1'),
     des_ctx = des_c.getContext('2d'),
@@ -180,4 +180,4 @@ function animate() {
 init();
 animate();
 
-})())
+});
